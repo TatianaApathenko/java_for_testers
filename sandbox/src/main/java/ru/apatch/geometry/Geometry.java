@@ -2,6 +2,7 @@ package ru.apatch.geometry;
 
 import ru.apatch.geometry.figures.Rectangle;
 import ru.apatch.geometry.figures.Square;
+import ru.apatch.geometry.figures.Triangle;
 
 public class Geometry {
     public static void main(String[] args) {
@@ -14,7 +15,9 @@ public class Geometry {
   Rectangle.printRectangleArea(2.5,3.0);
   Rectangle.printRectangleArea(9.5,2.0);
 
+        Triangle.printTrianglePerimeter(new Triangle(5.0, 3.0,4.0));
+        Triangle.printTriangleArea(new Triangle(3.0,4.0,5.0));
+
 
     }
-
 }
