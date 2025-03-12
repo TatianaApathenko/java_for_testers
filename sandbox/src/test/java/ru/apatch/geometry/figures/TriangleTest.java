@@ -46,4 +46,11 @@ double result = s.area();
         }
 }
 
+@Test
+    void TestEquality(){
+     var t1 = new Triangle(3.0,4.0,5.0);
+     var t2 =  new Triangle(4.0,5.0, 3.0);
+    Assertions.assertEquals(t1, t2);
+}
+
     }
