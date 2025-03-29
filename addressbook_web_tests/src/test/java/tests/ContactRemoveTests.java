@@ -1,18 +1,24 @@
 package tests;
+
 import model.ContactData;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class ContactRemoveTests extends TestBase {
-    private WebDriver driver;
 
     @Test
-    public void CanRemoveContact() {
-        if (!app.isContactPresent()){
-            app.CreateContact(new ContactData("Irishka","Mask","Gdetotam","+0999923321444","horoshaya","irishka.mail.ru"));
+    public void canRemoveContact() {
+        // Создаем контакт, если он не существует
+        if (!app.isContactPresent()) {
+            app.createContact(new ContactData("Irishka", "Mask", "Gdetotam",
+                    "+0999923321444", "horoshaya", "irishka.mail.ru"));
         }
+        // Запо
+
+        // Удаляем контакт
         app.removeContact();
+
+
     }
 }
-
-
