@@ -1,31 +1,21 @@
 package manager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 
 public class HelperBase {
-    protected WebDriver driver;
+    protected final ApplicationManager manager;
 
     public HelperBase(ApplicationManager manager) {
-        this.driver = manager.driver;
-    }
-
-    protected void click(By locator) {
-        driver.findElement(locator).click();
+        this.manager = manager;
     }
 
     protected void type(By locator, String text) {
-        driver.findElement(locator).sendKeys(text);
+        click(locator);
+        manager.driver.findElement(locator).clear();
+        manager.driver.findElement(locator).sendKeys(text);
     }
 
-    protected boolean isElementPresent(By locator) {
-        try {
-            driver.findElement(locator);
-            return true;
-        } catch (NoSuchElementException exception) {
-            return false;
-        }
+    protected void click(By locator) {
+        manager.driver.findElement(locator).click();
     }
 }
-

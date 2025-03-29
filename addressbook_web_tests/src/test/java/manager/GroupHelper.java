@@ -1,5 +1,7 @@
 package manager;
 
+import manager.ApplicationManager;
+import manager.HelperBase;
 import model.GroupData;
 import org.openqa.selenium.By;
 
@@ -9,31 +11,80 @@ public class GroupHelper extends HelperBase {
         super(manager);
     }
 
-    public void openGroupsPage() {
-        if (!isElementPresent(By.name("new"))) {
+
+    public void createGroup(GroupData group) {
+        openGroupPage();
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        returnToGroupsPage();
+    }
+
+    public void modifyGroup(GroupData modifiedGroup) {
+        openGroupPage();
+        selectGroup();
+        initGroupModification();
+        fillGroupForm(modifiedGroup);
+        submitGroupModification();
+        returnToGroupsPage();
+    }
+
+    public void removeGroup() {
+        openGroupPage();
+        selectGroup();
+        removeSelectedGroup();
+        returnToGroupsPage();
+    }
+
+    private void fillGroupForm(GroupData group) {
+        type(By.name("group_name"), group.name());
+        type(By.name("group_header"), group.header());
+        type(By.name("group_footer"), group.footer());
+
+    }
+
+    public void openGroupPage() {
+        if (!manager.isElementPresent(By.name("new"))) {
             click(By.linkText("groups"));
         }
     }
 
     public boolean isGroupPresent() {
-        openGroupsPage();
-        return isElementPresent(By.linkText("selected[]"));
+        openGroupPage();
+        return manager.isElementPresent(By.name("selected[]"));
     }
 
-    public void createGroup(GroupData group) {
-        openGroupsPage();
-        click(By.name("new"));
-        type(By.name("group_name"), group.name());
-        type(By.name("group_header"), group.header());
-        type(By.name("group_footer"), group.footer());
+    private void submitGroupCreation() {
         click(By.name("submit"));
+    }
+
+
+    private void initGroupCreation() {
+        click(By.name("new"));
+    }
+
+
+    private void removeSelectedGroup() {
+        click(By.name("delete"));
+    }
+
+
+    private void returnToGroupsPage() {
         click(By.linkText("group page"));
     }
 
-    public void removeGroup() {
-        openGroupsPage();
+    private void submitGroupModification() {
+        click(By.name("update"));
+    }
+
+
+    private void initGroupModification() {
+        click(By.name("edit"));
+
+    }
+
+    private void selectGroup() {
         click(By.name("selected[]"));
-        click(By.name("delete"));
-        click(By.linkText("group page"));
+
     }
 }
