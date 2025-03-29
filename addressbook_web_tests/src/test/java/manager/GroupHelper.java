@@ -1,7 +1,5 @@
 package manager;
 
-import manager.ApplicationManager;
-import manager.HelperBase;
 import model.GroupData;
 import org.openqa.selenium.By;
 
