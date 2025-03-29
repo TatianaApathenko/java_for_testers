@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 public class ContactCreationTests extends TestBase {
 
 
-
     @Test
     public void CanCreationCon() {
         app.createContact(new ContactData("Irishka", "Mask", "Gdetotam", "+0999923321444", "horoshaya", "irishka.mail.ru"));

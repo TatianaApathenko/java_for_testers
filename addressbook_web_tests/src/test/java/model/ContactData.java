@@ -9,10 +9,6 @@ public record ContactData(String firstname, String lastname, String address, Str
         return new ContactData(firstname, this.lastname, this.address, this.mobile, this.work, this.email);
     }
 
-    public ContactData withLastname(String lastname) {
-        return new ContactData(this.firstname, lastname, this.address, this.mobile, this.work, this.email);
-    }
-
     public ContactData withMobile(String mobile) {
         return new ContactData(this.firstname, this.lastname, this.address, mobile, this.work, this.email);
     }
