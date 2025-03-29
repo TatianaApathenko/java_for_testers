@@ -1,5 +1,4 @@
 package manager;
-
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,7 +11,7 @@ public class ApplicationManager {
     public void init() {
         if (driver == null) {
             driver = new FirefoxDriver();
-            Runtime.getRuntime().addShutdownHook(new Thread(this::stop));
+            Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
             driver.get("http://localhost/addressbook/");
             driver.manage().window().setSize(new Dimension(1550, 838));
             session().login("admin", "secret");
