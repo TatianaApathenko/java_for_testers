@@ -7,7 +7,6 @@ public class TestBase {
 
     protected static ApplicationManager app;
 
-
     @BeforeEach
     public void setUp() {
         if (app == null) {
