@@ -1,38 +1,34 @@
 package tests;
 
 import model.ContactData;
+import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
 import java.util.Random;
 
-public class ContactRemoveTests extends TestBase{
+public class ContactModificationTests extends TestBase{
 
     @Test
-    public void CanRemoveContact() {
+    void canModifyContact(){
         if (app.contacts().getCount() == 0){
             app.contacts().CreateContact(new ContactData("","Irishka", "Mask", "Gdetotam", "+0999923321444", "irishka@mail.com"));
         }
         var oldContacts = app.contacts().getList();
         var rnd = new Random();
         var index = rnd.nextInt(oldContacts.size());
-        app.contacts().removeContact(oldContacts.get(index));
+        var testData = new ContactData().withName("modified name");
+        app.contacts().modifyContact(oldContacts.get(index), testData);
         var newContacts = app.contacts().getList();
         var expectedList = new ArrayList<>(oldContacts);
-        expectedList.remove(index);
+        expectedList.set(index, testData.withId(oldContacts.get(index).id()));
+        Comparator<ContactData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newContacts.sort(compareById);
+        expectedList.sort(compareById);
         Assertions.assertEquals(newContacts, expectedList);
     }
-
-    @Test
-    public void CanRemoveAllContacts(){
-        if (app.contacts().getCount() == 0){
-            app.contacts().CreateContact(new ContactData("","Irishka", "Mask", "Gdetotam", "+0999923321444", "irishka@mail.com"));
-        }
-        app.contacts().removeAllContacts();
-        Assertions.assertEquals(0, app.contacts().getCount());
-    }
 }
-
