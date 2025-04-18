@@ -1,7 +1,8 @@
 
-package tests;
+package ru.apatch.addressbook.tests;
 
-import model.ContactData;
+import ru.apatch.addressbook.common.CommonFunctions;
+import ru.apatch.addressbook.model.ContactData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,8 +24,8 @@ public class ContactCreationTests extends TestBase {
         }
         for (int i = 0; i < 5; i++) {
             result.add(new ContactData()
-                    .withName(randomString((i + 1) * 10))
-                    .withLastName(randomString((i + 1) * 10))
+                    .withName(CommonFunctions.randomString((i + 1) * 10))
+                    .withLastName(CommonFunctions.randomString((i + 1) * 10))
                     .withPhoto(randomFile("src/test/resources/images")));        }
         return result;
     }

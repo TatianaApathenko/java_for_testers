@@ -1,7 +1,6 @@
-package tests;
+package ru.apatch.addressbook.tests;
 
-import model.ContactData;
-import model.GroupData;
+import ru.apatch.addressbook.model.ContactData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

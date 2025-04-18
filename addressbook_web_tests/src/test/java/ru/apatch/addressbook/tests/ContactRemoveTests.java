@@ -1,12 +1,10 @@
-package tests;
+package ru.apatch.addressbook.tests;
 
-import model.ContactData;
+import ru.apatch.addressbook.model.ContactData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class ContactRemoveTests extends TestBase{
