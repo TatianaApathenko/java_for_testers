@@ -7,31 +7,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Properties;
+
 public class ApplicationManager {
     protected WebDriver driver;
     private LoginHelper session;
-    private GroupHelper groups;
-    private ContactHelper contacts;
+    public GroupHelper groups;
+    public ContactHelper contacts;
+    private Properties properties;
 
-    public void init(String browser) {
+    public void init(String browser, Properties properties) {
+        this.properties = properties;
         if (driver == null) {
             if ("chrome".equals(browser)) {
                 driver = new ChromeDriver();
             } else if ("firefox".equals(browser)) {
                 driver = new FirefoxDriver();
             } else {
-                throw new IllegalArgumentException(String.format("Unknown browser %s", browser));
+                throw new IllegalArgumentException(String.format("Unknow browser %s", browser));
             }
             Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
-            driver.get("http://localhost/addressbook/");
-            driver.manage().window().setSize(new Dimension(1550, 838));
-            login();
+            driver.get(properties.getProperty("web.baseUrl"));
+            driver.manage().window().setSize(new Dimension(1490, 1019));
+            driver.findElement(By.name("user")).click();
+            session().login(properties.getProperty("web.username"), properties.getProperty("web.password"));
         }
-    }
-
-    private void login() {
-        driver.findElement(By.name("user")).click();
-        session().login("admin", "secret");
     }
 
     public LoginHelper session() {
@@ -59,12 +59,9 @@ public class ApplicationManager {
         try {
             driver.findElement(locator);
             return true;
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException exception) {
             return false;
         }
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
 }
