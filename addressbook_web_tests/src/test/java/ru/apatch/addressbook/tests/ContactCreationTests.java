@@ -3,11 +3,10 @@ package ru.apatch.addressbook.tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ru.apatch.addressbook.common.CommonFunctions;
-import ru.apatch.addressbook.model.ContactData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.apatch.addressbook.model.ContactData;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class ContactCreationTests extends TestBase{
+public class ContactCreationTests extends TestBase {
 
     public static List<ContactData> contactProvider() throws IOException {
         var result = new ArrayList<ContactData>();
@@ -34,7 +33,8 @@ public class ContactCreationTests extends TestBase{
 //        }
         var json = Files.readString(Paths.get("contacts.json"));
         ObjectMapper mapper = new ObjectMapper();
-        var value = mapper.readValue(json, new TypeReference<List<ContactData>>() {});
+        var value = mapper.readValue(json, new TypeReference<List<ContactData>>() {
+        });
         result.addAll(value);
         return result;
     }
@@ -50,7 +50,7 @@ public class ContactCreationTests extends TestBase{
         };
         newContacts.sort(compareById);
         var expectedList = new ArrayList<>(oldContacts);
-        expectedList.add(contact.withId(newContacts.get(newContacts.size() -1 ).id()));
+        expectedList.add(contact.withId(newContacts.get(newContacts.size() - 1).id()));
         expectedList.sort(compareById);
         Assertions.assertEquals(newContacts, expectedList);
     }
