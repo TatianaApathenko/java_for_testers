@@ -1,8 +1,8 @@
 package ru.apatch.addressbook.tests;
 
-import ru.apatch.addressbook.model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.apatch.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.Comparator;

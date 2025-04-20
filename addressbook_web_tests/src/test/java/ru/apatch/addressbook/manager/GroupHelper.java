@@ -1,7 +1,7 @@
 package ru.apatch.addressbook.manager;
 
-import ru.apatch.addressbook.model.GroupData;
 import org.openqa.selenium.By;
+import ru.apatch.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +96,7 @@ public class GroupHelper extends HelperBase {
     }
 
     private void selectAllGroups() {
-        var checkboxes =  manager.driver.findElements(By.name("selected[]"));
+        var checkboxes = manager.driver.findElements(By.name("selected[]"));
         for (var checkbox : checkboxes) {
             checkbox.click();
         }
@@ -105,13 +105,13 @@ public class GroupHelper extends HelperBase {
     public List<GroupData> getList() {
         openGroupPage();
         var groups = new ArrayList<GroupData>();
-    var spans = manager.driver.findElements(By.cssSelector("span.group"));
-    for (var span : spans) {
-        var name = span.getText();
-        var checkbox = span.findElement(By.name("selected[]"));
-        var id = checkbox.getAttribute("value");
-        groups.add(new GroupData().withId(id).withName(name));
-    }
-    return  groups;
+        var spans = manager.driver.findElements(By.cssSelector("span.group"));
+        for (var span : spans) {
+            var name = span.getText();
+            var checkbox = span.findElement(By.name("selected[]"));
+            var id = checkbox.getAttribute("value");
+            groups.add(new GroupData().withId(id).withName(name));
+        }
+        return groups;
     }
 }

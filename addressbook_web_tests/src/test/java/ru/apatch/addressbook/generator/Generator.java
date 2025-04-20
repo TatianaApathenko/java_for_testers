@@ -15,7 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class Generator {
 
     @Parameter(names={"--type", "-t"})
@@ -52,7 +51,7 @@ public class Generator {
         }else if ("contacts".equals(type)){
             return generateContacts();
         } else {
-            throw new IllegalArgumentException("Unknown type data" + type);
+            throw new IllegalArgumentException("неизвестный тип данных" + type);
         }
     }
 
@@ -86,24 +85,24 @@ public class Generator {
             try (var writer = new FileWriter(output)){
                 writer.write(json);
             } catch (IOException e) {
-                throw new IOException("Error writing JSON file", e);
+                throw new IOException("Ошибка при записи JSON файла", e);
             }
         } else if ("yaml".equals(format)) {
             var mapper = new YAMLMapper();
             try {
                 mapper.writeValue(new File(output), data);
             } catch (IOException e) {
-                throw new IOException("Error writing YAML file", e);
+                throw new IOException("Ошибка при записи YAML файла", e);
             }
         } else if ("xml".equals(format)) {
             var mapper = new XmlMapper();
             try {
                 mapper.writeValue(new File(output), data);
             } catch (IOException e) {
-                throw new IOException("Error writing XML file", e);
+                throw new IOException("Ошибка при записи XML файла", e);
             }
         } else {
-            throw new IllegalArgumentException("Unknown format data" + format);
+            throw new IllegalArgumentException("Неизвестный формат данных" + format);
         }
     }
 

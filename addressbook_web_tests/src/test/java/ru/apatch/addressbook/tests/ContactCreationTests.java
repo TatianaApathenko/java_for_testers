@@ -1,4 +1,3 @@
-
 package ru.apatch.addressbook.tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -6,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.apatch.addressbook.common.CommonFunctions;
 import ru.apatch.addressbook.model.ContactData;
 
 import java.io.IOException;
@@ -39,18 +39,25 @@ public class ContactCreationTests extends TestBase {
         return result;
     }
 
+    public static List<ContactData> singleRandomContact() {
+        return List.of(new ContactData()
+                .withName(CommonFunctions.randomString(10))
+                .withLastName(CommonFunctions.randomString(20)));
+    }
+
     @ParameterizedTest
-    @MethodSource("contactProvider")
-    public void CanCreateMultipleContact(ContactData contact) {
-        var oldContacts = app.contacts().getList();
+    @MethodSource("singleRandomContact")
+    public void CanCreateContact(ContactData contact) {
+        var oldContacts = app.hbm().getContactList();
         app.contacts().CreateContact(contact);
-        var newContacts = app.contacts().getList();
+        var newContacts = app.hbm().getContactList();
         Comparator<ContactData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
         newContacts.sort(compareById);
+        var maxId = newContacts.get(newContacts.size() - 1).id();
         var expectedList = new ArrayList<>(oldContacts);
-        expectedList.add(contact.withId(newContacts.get(newContacts.size() - 1).id()));
+        expectedList.add(contact.withId(maxId));
         expectedList.sort(compareById);
         Assertions.assertEquals(newContacts, expectedList);
     }

@@ -1,13 +1,12 @@
 package ru.apatch.addressbook.manager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import ru.apatch.addressbook.model.ContactData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(ApplicationManager manager) {
         super(manager);
@@ -89,7 +88,7 @@ public class ContactHelper extends HelperBase{
         //returnToHomePAge();
         var contacts = new ArrayList<ContactData>();
         var trs = manager.driver.findElements(By.name("entry"));
-        for (var tr: trs){
+        for (var tr : trs) {
             var td = tr.findElements(By.tagName("td"));
             String id = String.valueOf(Integer.parseInt(td.get(0).findElement(By.cssSelector("input[type='checkbox']")).getAttribute("value")));
             String lastname = td.get(1).getText();
