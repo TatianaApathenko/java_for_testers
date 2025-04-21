@@ -117,4 +117,19 @@ public class HibernateHelper extends HelperBase {
             return convertContactList(session.get(GroupRecord.class, group.id()).contacts);
         });
     }
+
+    public List<GroupData> getGroupsByContact(ContactData contactData) {
+        return sessionFactory.fromSession(session -> {
+            return convertList(session.get(ContactRecord.class, contactData.id()).groups);
+        });
+    }
+
+    public List<ContactData> getContactsNotInGroup() {
+        var allContacts = getContactList();
+        allContacts.removeIf(contactData -> {
+            var groups = getGroupsByContact(contactData);
+            return (groups != null) && (!groups.isEmpty());
+        });
+        return allContacts;
+    }
 }

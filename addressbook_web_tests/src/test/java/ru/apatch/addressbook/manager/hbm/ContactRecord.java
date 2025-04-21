@@ -1,11 +1,9 @@
 package ru.apatch.addressbook.manager.hbm;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -31,6 +29,9 @@ public class ContactRecord {
     @Column(name = "email")
     public String email;
 
+    @ManyToMany(mappedBy = "contacts")
+    public List<GroupRecord> groups;
+
     public String middlename = "";
     public String nickname = "";
     public String company = "";
@@ -44,12 +45,12 @@ public class ContactRecord {
     public String im2 = "";
     public String im3 = "";
     public String homepage = "";
-    public int bday = 3;
+    public int bday = 15;
     public String bmonth = "";
     public int byear = 1922;
-    public int aday = 2;
+    public int aday = 9;
     public String amonth = "";
-    public int ayear = 1;
+    public int ayear = 2;
     public String address2 = "";
     public String phone2 = "";
     public String notes = "";
