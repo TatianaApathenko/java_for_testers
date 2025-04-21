@@ -1,13 +1,13 @@
 package ru.apatch.addressbook.manager;
 
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AvailableSettings;
-import org.hibernate.cfg.Configuration;
 import ru.apatch.addressbook.manager.hbm.ContactRecord;
 import ru.apatch.addressbook.manager.hbm.GroupRecord;
 import ru.apatch.addressbook.model.ContactData;
 import ru.apatch.addressbook.model.GroupData;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AvailableSettings;
+import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;

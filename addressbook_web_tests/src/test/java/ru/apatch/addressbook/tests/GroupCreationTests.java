@@ -3,14 +3,18 @@ package ru.apatch.addressbook.tests;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import ru.apatch.addressbook.common.CommonFunctions;
+import ru.apatch.addressbook.model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import ru.apatch.addressbook.common.CommonFunctions;
-import ru.apatch.addressbook.model.GroupData;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -73,7 +77,7 @@ public class GroupCreationTests extends TestBase {
 
     public static List<GroupData> negativeGroupProvider() {
         var result = new ArrayList<GroupData>(List.of(
-                new GroupData("", "group'", "header", "footer")));
+                new GroupData("", "group'", "header6565", "footer567657")));
         return result;
     }
 

@@ -1,7 +1,7 @@
 package ru.apatch.addressbook.manager;
 
-import org.openqa.selenium.By;
 import ru.apatch.addressbook.model.GroupData;
+import org.openqa.selenium.By;
 
 import java.util.ArrayList;
 import java.util.List;
