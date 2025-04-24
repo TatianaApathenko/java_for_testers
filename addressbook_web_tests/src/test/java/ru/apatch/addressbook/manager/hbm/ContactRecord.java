@@ -29,6 +29,10 @@ public class ContactRecord {
     @Column(name = "email")
     public String email;
 
+    public String home;
+    public String work;
+    public String phone2;
+
     @ManyToMany(mappedBy = "contacts")
     public List<GroupRecord> groups;
 
@@ -36,8 +40,6 @@ public class ContactRecord {
     public String nickname = "";
     public String company = "";
     public String title = "";
-    public String work = "";
-    public String home = "";
     public String fax = "";
     public String email2 = "";
     public String email3 = "";
@@ -45,14 +47,13 @@ public class ContactRecord {
     public String im2 = "";
     public String im3 = "";
     public String homepage = "";
-    public int bday = 15;
+    public int bday = 4;
     public String bmonth = "";
-    public int byear = 1922;
-    public int aday = 9;
+    public int byear = 1933;
+    public int aday = 12;
     public String amonth = "";
-    public int ayear = 2;
+    public int ayear = 3;
     public String address2 = "";
-    public String phone2 = "";
     public String notes = "";
     public String photo = "";
     public String x_vcard = "";

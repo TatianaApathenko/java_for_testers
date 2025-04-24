@@ -1,10 +1,9 @@
 package ru.apatch.addressbook.tests;
 
-import ru.apatch.addressbook.manager.ApplicationManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import ru.apatch.addressbook.manager.ApplicationManager;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;

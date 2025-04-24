@@ -11,6 +11,7 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HibernateHelper extends HelperBase {
     private SessionFactory sessionFactory;
@@ -27,11 +28,7 @@ public class HibernateHelper extends HelperBase {
     }
 
     static List<GroupData> convertList(List<GroupRecord> records) {
-        List<GroupData> result = new ArrayList<>();
-        for (var record : records) {
-            result.add(convert(record));
-        }
-        return result;
+        return records.stream().map(HibernateHelper::convert).collect(Collectors.toList());
     }
 
     private static GroupData convert(GroupRecord record) {
@@ -73,11 +70,7 @@ public class HibernateHelper extends HelperBase {
     }
 
     static List<ContactData> convertContactList(List<ContactRecord> records) {
-        List<ContactData> result = new ArrayList<>();
-        for (var record : records) {
-            result.add(convertContact(record));
-        }
-        return result;
+        return records.stream().map(HibernateHelper::convertContact).collect(Collectors.toList());
     }
 
     private static ContactData convertContact(ContactRecord record) {
@@ -86,7 +79,10 @@ public class HibernateHelper extends HelperBase {
                 .withLastName(record.lastname)
                 .withAddress(record.address)
                 .withMobile(record.mobile)
-                .withEmail(record.email);
+                .withEmail(record.email)
+                .withHome(record.home)
+                .withWork(record.work)
+                .withSecondary(record.phone2);
     }
 
     private static ContactRecord convertContact(ContactData data) {
@@ -131,5 +127,13 @@ public class HibernateHelper extends HelperBase {
             return (groups != null) && (!groups.isEmpty());
         });
         return allContacts;
+    }
+
+    public String getIdContactByName(String firstname) {
+        return sessionFactory.fromSession(session -> {
+            return session.createQuery(String.format("select id from ContactRecord where firstname='%s'",
+                            firstname),
+                    Integer.class).getSingleResult().toString();
+        });
     }
 }

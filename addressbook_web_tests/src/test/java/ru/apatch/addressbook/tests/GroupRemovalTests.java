@@ -1,12 +1,10 @@
 package ru.apatch.addressbook.tests;
 
-import com.google.common.collect.RangeMap;
-import ru.apatch.addressbook.model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.apatch.addressbook.model.GroupData;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GroupRemovalTests extends TestBase {
