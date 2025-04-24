@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed3c9796-7ace-400e-84ca-0a227d960ccf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_5_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_params_5_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/sandbox.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/sandbox.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/contacts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/groups.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/groups.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/groups.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/common/CommonFunctions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/generator/Generator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/ApplicationManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/ContactHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/GroupHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/HelperBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/HibernateHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/JdbcHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/LoginHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/hbm/ContactRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/hbm/GroupRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/model/ContactData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/model/GroupData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactAddInGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactCreationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactModificationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactRemoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/GroupCreationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/GroupModificationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/GroupRemovalTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/TestBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/avatar-female.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/diversity_man_boy_white_smiling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/female.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/girl_female.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/police.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/pulmonologist.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/virologist.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/resources/images/wonder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_for_testers.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_for_testers/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/HibernateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_for_testers/addressbook_web_tests/src/test/java/ru/apatch/addressbook/manager/HibernateHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_for_testers/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactAddInGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_for_testers/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactAddInGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_for_testers/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactRemoveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_for_testers/addressbook_web_tests/src/test/java/ru/apatch/addressbook/tests/ContactRemoveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/groups.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/Hello.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/apatch/geometry/Geometry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/apatch/geometry/figures/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/apatch/geometry/figures/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/apatch/geometry/figures/Triangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/apatch/collections/CollectionTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/apatch/geometry/figures/SquareTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/apatch/geometry/figures/TriangleTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/java_for_testers/addressbook_web_tests">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/java_for_testers/sandbox">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/java_for_testers/addressbook_web_tests">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="addressbook_web_tests" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/java_for_testers" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2wAVaI70QWImvulcFbAONkfkjxy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.ContactAddInGroup.executor": "Run",
+    "Gradle.ContactRemovalFromGroup.executor": "Run",
+    "Gradle.ContactRemoveTests.executor": "Run",
+    "Gradle.Tests in 'ru.apatch.addressbook.tests'.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/java/homework/java_for_testers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Gradle.ContactRemovalFromGroup">
+    <configuration name="ContactAddInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java_for_testers/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.apatch.addressbook.tests.ContactAddInGroup&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ContactRemovalFromGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java_for_testers/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.apatch.addressbook.tests.ContactRemovalFromGroup&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ContactRemoveTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java_for_testers/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.apatch.addressbook.tests.ContactRemoveTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'ru.apatch.addressbook.tests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java_for_testers/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.apatch.addressbook.tests.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ContactRemovalFromGroup" />
+        <item itemvalue="Gradle.ContactRemoveTests" />
+        <item itemvalue="Gradle.Tests in 'ru.apatch.addressbook.tests'" />
+        <item itemvalue="Gradle.ContactAddInGroup" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed3c9796-7ace-400e-84ca-0a227d960ccf" name="Changes" comment="" />
+      <created>1745484426872</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745484426872</updated>
+      <workItem from="1745484427899" duration="208000" />
+      <workItem from="1745484650095" duration="1898000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
