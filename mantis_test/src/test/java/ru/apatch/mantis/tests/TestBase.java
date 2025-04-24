@@ -1,10 +1,8 @@
-package ru.apatch.addressbook.tests;
+package ru.apatch.mantis.tests;
 
-import ru.apatch.addressbook.manager.ApplicationManager;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import ru.apatch.mantis.manager.ApplicationManager;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -21,10 +19,5 @@ public class TestBase {
             app = new ApplicationManager();
             app.init(System.getProperty("browser", "chrome"), properties);
         }
-    }
-
-    @AfterEach
-    void checkDatabaseConsistency(){
-        app.jdbc().checkConsistency();
     }
 }
