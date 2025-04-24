@@ -1,10 +1,10 @@
 package ru.apatch.addressbook.manager;
 
-import ru.apatch.addressbook.model.ContactData;
-import ru.apatch.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import ru.apatch.addressbook.model.ContactData;
+import ru.apatch.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
