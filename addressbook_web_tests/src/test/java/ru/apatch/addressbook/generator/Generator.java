@@ -13,7 +13,9 @@ import ru.apatch.addressbook.model.GroupData;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Generator {
 
@@ -55,25 +57,21 @@ public class Generator {
         }
     }
 
+    private Object generateData(Supplier<Object> dataSupplier) {
+        return Stream.generate(dataSupplier).limit(count).collect(Collectors.toList());
+    }
+
     private Object generateContacts() {
-        var result = new ArrayList<ContactData>();
-        for (int i = 0; i < count; i++) {
-            result.add(new ContactData()
-                    .withName(CommonFunctions.randomString((i) * 10))
-                    .withLastName(CommonFunctions.randomString((i) * 10)));
-        }
-        return result;
+        return generateData(() -> new ContactData()
+                .withName(CommonFunctions.randomString(10))
+                .withLastName(CommonFunctions.randomString(10)));
     }
 
     private Object generateGroups() {
-        var result = new ArrayList<GroupData>();
-        for (int i = 0; i < count; i++) {
-            result.add(new GroupData()
-                    .withName(CommonFunctions.randomString((i) * 10))
-                    .withHeader(CommonFunctions.randomString((i) * 10))
-                    .withFooter(CommonFunctions.randomString((i) * 10)));
-        }
-        return result;
+        return generateData(() -> new GroupData()
+                .withName(CommonFunctions.randomString(10))
+                .withHeader(CommonFunctions.randomString(10))
+                .withFooter(CommonFunctions.randomString(10)));
     }
 
     private void save(Object data) throws IOException {
@@ -99,10 +97,10 @@ public class Generator {
             try {
                 mapper.writeValue(new File(output), data);
             } catch (IOException e) {
-                throw new IOException("Error writing XML fileа", e);
+                throw new IOException("Error writing XML file", e);
             }
         } else {
-            throw new IllegalArgumentException("Неизвестный формат данных" + format);
+            throw new IllegalArgumentException("Unknown data type" + format);
         }
     }
 

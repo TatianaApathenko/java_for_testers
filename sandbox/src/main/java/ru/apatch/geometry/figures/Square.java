@@ -27,6 +27,13 @@ public class Square {
       return 4 * side;
   }
 
+    public static void printArea(Square square) {
+
+    }
+
+    public static void printPerimeter(Square square) {
+    }
+
     public double area() {
         return this.side * this.side;
     }

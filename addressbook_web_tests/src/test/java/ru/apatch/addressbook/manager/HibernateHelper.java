@@ -1,15 +1,14 @@
 package ru.apatch.addressbook.manager;
 
 
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AvailableSettings;
+import org.hibernate.cfg.Configuration;
 import ru.apatch.addressbook.manager.hbm.ContactRecord;
 import ru.apatch.addressbook.manager.hbm.GroupRecord;
 import ru.apatch.addressbook.model.ContactData;
 import ru.apatch.addressbook.model.GroupData;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AvailableSettings;
-import org.hibernate.cfg.Configuration;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -127,13 +126,5 @@ public class HibernateHelper extends HelperBase {
             return (groups != null) && (!groups.isEmpty());
         });
         return allContacts;
-    }
-
-    public String getIdContactByName(String firstname) {
-        return sessionFactory.fromSession(session -> {
-            return session.createQuery(String.format("select id from ContactRecord where firstname='%s'",
-                            firstname),
-                    Integer.class).getSingleResult().toString();
-        });
     }
 }
