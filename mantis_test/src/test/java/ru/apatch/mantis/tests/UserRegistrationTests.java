@@ -13,14 +13,14 @@ import java.time.Duration;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class UserRegistrationTests extends TestBase {
+public class UserRegistrationTests extends TestBase{
 
     private DeveloperMailUser user;
 
 
     @ParameterizedTest
     @MethodSource("singleUser")
-    void canRegisterUser(UserRegistration registration) {
+    void canRegisterUser(UserRegistration registration){
         app.jamesCli().addUser(registration.email(), "password");
         app.registration().canCreateUser(registration);
         var messages = app.mail().receive(registration.email(), "password", Duration.ofSeconds(60));
@@ -33,7 +33,7 @@ public class UserRegistrationTests extends TestBase {
         }
         app.driver().get(url);
         app.registration().confirmUser(CommonFunctions.randomString(10), "password");
-        app.http().login(registration.username(), "password");
+        app.http().login(registration.username(),"password");
         Assertions.assertTrue(app.http().isLoggedIn());
     }
 
@@ -45,15 +45,50 @@ public class UserRegistrationTests extends TestBase {
     }
 
     @Test
-    void canCreateUser() {
+    void canCreateUser(){
         var password = "password";
         user = app.developerMail().addUser();
         var email = String.format("%s@developermail.com", user.name());
+
+        app.registration().startCreation(user.name(), email);
+
+        var message = app.developerMail().receive(user, Duration.ofMinutes(5));
+
+        var pattern = Pattern.compile("http://\\S*");
+        var matcher = pattern.matcher(message);
+        String url = null;
+        if (matcher.find()) {
+            url = message.substring(matcher.start(), matcher.end());
+        }
+        app.driver().get(url);
+        app.registration().canConfirmUser(user.name(), password);
+        app.http().login(user.name(), password);
+        Assertions.assertTrue(app.http().isLoggedIn());
     }
 
 
     @AfterEach
-    void deleteMailUser() {
+    void deleteMailUser(){
         app.developerMail().deleteUser(user);
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("singleUser")
+    void canCreateUserByJamesUseRestApi(UserRegistration registration) {
+        app.jamesApi().addUser(registration.email(), "password");
+        app.rest().addUser(registration);
+        var messages = app.mail().receive(registration.email(), "password", Duration.ofSeconds(60));
+        var text = messages.getFirst().content();
+        var pattern = Pattern.compile("http://\\S*");
+        var matcher = pattern.matcher(text);
+        String url = null;
+        if (matcher.find()) {
+            url = text.substring(matcher.start(), matcher.end());
+        }
+        app.driver().get(url);
+        app.registration().canConfirmUser(registration.username(), "password");
+        app.http().login(registration.username(), "password");
+        Assertions.assertTrue(app.http().isLoggedIn());
     }
 }

@@ -1,10 +1,12 @@
 package ru.apatch.mantis.manager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.nio.file.WatchEvent;
 import java.util.Properties;
 
 public class ApplicationManager {
@@ -19,6 +21,7 @@ public class ApplicationManager {
     private RegistrationHelper registrationHelper;
     private jamesApiHelper jamesApiHelper;
     private DeveloperMailHelper developerMailHelper;
+    private RestApiHelper restApiHelper;
 
 
     public void init(String browser, Properties properties) {
@@ -27,8 +30,8 @@ public class ApplicationManager {
 
     }
 
-    public WebDriver driver() {
-        if (driver == null) {
+    public WebDriver driver(){
+        if (driver == null){
             if ("chrome".equals(browser)) {
                 driver = new ChromeDriver();
             } else if ("firefox".equals(browser)) {
@@ -42,30 +45,29 @@ public class ApplicationManager {
         }
         return driver;
     }
-
-    public SessionHelper session() {
-        if (sessionHelper == null) {
+    public SessionHelper session(){
+        if (sessionHelper == null){
             sessionHelper = new SessionHelper(this);
         }
         return sessionHelper;
     }
 
     public HttpSessionHelper http() {
-        if (httpsessionHelper == null) {
+        if (httpsessionHelper == null){
             httpsessionHelper = new HttpSessionHelper(this);
         }
         return httpsessionHelper;
     }
 
     public jamesCliHelper jamesCli() {
-        if (jamesCliHelper == null) {
+        if (jamesCliHelper == null){
             jamesCliHelper = new jamesCliHelper(this);
         }
         return jamesCliHelper;
     }
 
     public MailHelper mail() {
-        if (mailHelper == null) {
+        if (mailHelper == null){
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
@@ -79,7 +81,7 @@ public class ApplicationManager {
     }
 
     public jamesApiHelper jamesApi() {
-        if (jamesApiHelper == null) {
+        if (jamesApiHelper == null){
             jamesApiHelper = new jamesApiHelper(this);
         }
         return jamesApiHelper;
@@ -92,7 +94,15 @@ public class ApplicationManager {
         return developerMailHelper;
     }
 
-    public String property(String name) {
+
+    public RestApiHelper rest() {
+        if (restApiHelper == null) {
+            restApiHelper = new RestApiHelper(this);
+        }
+        return restApiHelper;
+    }
+
+    public String property(String name){
         return properties.getProperty(name);
     }
 }

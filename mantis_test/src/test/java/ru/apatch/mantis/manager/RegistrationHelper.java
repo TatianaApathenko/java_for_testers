@@ -1,7 +1,9 @@
 package ru.apatch.mantis.manager;
 
 import org.openqa.selenium.By;
+import ru.apatch.mantis.model.DeveloperMailUser;
 import ru.apatch.mantis.model.UserRegistration;
+import ru.apatch.mantis.tests.TestBase;
 
 public class RegistrationHelper extends HelperBase {
 
@@ -38,5 +40,15 @@ public class RegistrationHelper extends HelperBase {
 
     private void updateUser() {
         manager.driver().findElement(By.xpath("//button[@type='submit']")).click();
+    }
+
+    public void startCreation(String user, String email) {
+    }
+
+    public void canConfirmUser(String name, String password) {
+        type(By.name("realname"), name);
+        type(By.name("password"), password);
+        type(By.name("password_confirm"), password);
+        updateUser();
     }
 }
