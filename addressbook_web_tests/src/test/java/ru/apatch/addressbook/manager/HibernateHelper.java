@@ -1,14 +1,16 @@
 package ru.apatch.addressbook.manager;
 
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AvailableSettings;
-import org.hibernate.cfg.Configuration;
+import io.qameta.allure.Step;
 import ru.apatch.addressbook.manager.hbm.ContactRecord;
 import ru.apatch.addressbook.manager.hbm.GroupRecord;
 import ru.apatch.addressbook.model.ContactData;
 import ru.apatch.addressbook.model.GroupData;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AvailableSettings;
+import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +28,7 @@ public class HibernateHelper extends HelperBase {
                 .buildSessionFactory();
     }
 
-    static List<GroupData> convertList(List<GroupRecord> records) {
+    static List<GroupData> convertList(List<GroupRecord> records){
         return records.stream().map(HibernateHelper::convert).collect(Collectors.toList());
     }
 
@@ -36,13 +38,14 @@ public class HibernateHelper extends HelperBase {
 
     private static GroupRecord convert(GroupData data) {
         var id = data.id();
-        if ("".equals(id)) {
+        if ("".equals(id)){
             id = "0";
         }
         return new GroupRecord(Integer.parseInt(id), data.name(), data.header(), data.footer());
     }
 
-    public List<GroupData> getGroupList() {
+    @Step
+    public List<GroupData> getGroupList(){
         return convertList(sessionFactory.fromSession(session -> {
             return session.createQuery("from GroupRecord", GroupRecord.class).list();
         }));
@@ -54,6 +57,7 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
+    @Step
     public void createGroup(GroupData groupData) {
         sessionFactory.inSession(session -> {
             session.getTransaction().begin();
@@ -73,7 +77,7 @@ public class HibernateHelper extends HelperBase {
     }
 
     private static ContactData convertContact(ContactRecord record) {
-        return new ContactData().withId("" + record.id)
+        return new ContactData().withId(""+ record.id)
                 .withName(record.firstname)
                 .withLastName(record.lastname)
                 .withAddress(record.address)
@@ -86,7 +90,7 @@ public class HibernateHelper extends HelperBase {
 
     private static ContactRecord convertContact(ContactData data) {
         var id = data.id();
-        if ("".equals(id)) {
+        if("".equals(id)) {
             id = "0";
         }
         return new ContactRecord(Integer.parseInt(id), data.firstname(), data.lastname(), data.address(), data.mobile(), data.email());
@@ -126,5 +130,13 @@ public class HibernateHelper extends HelperBase {
             return (groups != null) && (!groups.isEmpty());
         });
         return allContacts;
+    }
+
+    public String getIdContactByName(String firstname) {
+        return sessionFactory.fromSession(session -> {
+            return session.createQuery(String.format("select id from ContactRecord where firstname='%s'",
+                            firstname),
+                    Integer.class).getSingleResult().toString();
+        });
     }
 }

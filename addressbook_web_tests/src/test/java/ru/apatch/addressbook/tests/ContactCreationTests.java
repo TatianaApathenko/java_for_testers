@@ -2,13 +2,14 @@ package ru.apatch.addressbook.tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ru.apatch.addressbook.common.CommonFunctions;
+import io.qameta.allure.Allure;
+import ru.apatch.addressbook.model.ContactData;
+import ru.apatch.addressbook.model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import ru.apatch.addressbook.common.CommonFunctions;
-import ru.apatch.addressbook.model.ContactData;
-import ru.apatch.addressbook.model.GroupData;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class ContactCreationTests extends TestBase {
+public class ContactCreationTests extends TestBase{
 
     public static List<ContactData> contactProvider() throws IOException {
         var result = new ArrayList<ContactData>();
@@ -35,8 +36,7 @@ public class ContactCreationTests extends TestBase {
 //        }
         var json = Files.readString(Paths.get("contacts.json"));
         ObjectMapper mapper = new ObjectMapper();
-        var value = mapper.readValue(json, new TypeReference<List<ContactData>>() {
-        });
+        var value = mapper.readValue(json, new TypeReference<List<ContactData>>() {});
         result.addAll(value);
         return result;
     }
@@ -53,11 +53,13 @@ public class ContactCreationTests extends TestBase {
         var oldContacts = app.hbm().getContactList();
         app.contacts().CreateContact(contact);
         var newContacts = app.hbm().getContactList();
-        var extraContact = newContacts.stream().filter(c -> !oldContacts.contains(c)).toList();
+        var extraContact = newContacts.stream().filter(c -> ! oldContacts.contains(c)).toList();
         var newId = extraContact.get(0).id();
         var expectedList = new ArrayList<>(oldContacts);
         expectedList.add(contact.withId(newId));
-        Assertions.assertEquals(Set.copyOf(newContacts), Set.copyOf(expectedList));
+        Allure.step("Validating results", step -> {
+            Assertions.assertEquals(Set.copyOf(newContacts), Set.copyOf(expectedList));
+        });
     }
 
     public static List<ContactData> negativeContactProvider() {
@@ -72,7 +74,9 @@ public class ContactCreationTests extends TestBase {
         var oldContacts = app.contacts().getList();
         app.contacts().CreateContact(contact);
         var newContacts = app.contacts().getList();
-        Assertions.assertEquals(oldContacts, newContacts);
+        Allure.step("Validating results", step -> {
+            Assertions.assertEquals(oldContacts, newContacts);
+        });
     }
 
 
@@ -84,14 +88,16 @@ public class ContactCreationTests extends TestBase {
                 .withAddress(CommonFunctions.randomString(10))
                 .withMobile(CommonFunctions.randomString(10))
                 .withEmail(CommonFunctions.randomString(10));
-        if (app.hbm().getGroupCount() == 0) {
+        if (app.hbm().getGroupCount() == 0){
             app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
         }
         var group = app.hbm().getGroupList().get(0);
 
         var oldRelated = app.hbm().getContactsInGroup(group);
-        app.contacts().CreateContact(contact, group);
+        app.contacts().CreateContact(contact,group);
         var newRelated = app.hbm().getContactsInGroup(group);
-        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+        Allure.step("Validating results", step -> {
+            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+        });
     }
 }

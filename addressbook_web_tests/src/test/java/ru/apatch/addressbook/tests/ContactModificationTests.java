@@ -1,21 +1,24 @@
 package ru.apatch.addressbook.tests;
 
+import ru.apatch.addressbook.common.CommonFunctions;
+import io.qameta.allure.Allure;
+import ru.apatch.addressbook.model.ContactData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.apatch.addressbook.common.CommonFunctions;
-import ru.apatch.addressbook.model.ContactData;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Set;
 
-public class ContactModificationTests extends TestBase {
+public class ContactModificationTests extends TestBase{
 
     @Test
-    void canModifyContact() {
-        if (app.hbm().getContactCount() == 0) {
-            app.hbm().CreateContact(new ContactData("1", "Luda", "Ed", "LA", "+57687686", "luda@mail.com", "", "", "", "", "", "", ""));
-        }
+    void canModifyContact(){
+        Allure.step("Checking precondition", step -> {
+            if (app.hbm().getContactCount() == 0){
+                app.hbm().CreateContact(new ContactData("1", "Luda", "Ed", "LA", "+57687686", "luda@mail.com", "", "", "", "", "", "", ""));
+            }
+        });
         var oldContacts = app.hbm().getContactList();
         var rnd = new Random();
         var index = rnd.nextInt(oldContacts.size());
@@ -24,6 +27,8 @@ public class ContactModificationTests extends TestBase {
         var newContacts = app.hbm().getContactList();
         var expectedList = new ArrayList<>(oldContacts);
         expectedList.set(index, testData.withId(oldContacts.get(index).id()));
-        Assertions.assertEquals(Set.copyOf(newContacts), Set.copyOf(expectedList));
+        Allure.step("Validating results", step-> {
+            Assertions.assertEquals(Set.copyOf(newContacts), Set.copyOf(expectedList));
+        });
     }
 }

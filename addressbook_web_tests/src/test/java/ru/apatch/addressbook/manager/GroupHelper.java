@@ -1,13 +1,15 @@
 package ru.apatch.addressbook.manager;
 
+import io.qameta.allure.Step;
+import ru.apatch.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import ru.apatch.addressbook.model.GroupData;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GroupHelper extends HelperBase {
+public class GroupHelper extends HelperBase{
 
     public GroupHelper(ApplicationManager manager) {
         super(manager);
@@ -31,6 +33,7 @@ public class GroupHelper extends HelperBase {
         returnToGroupsPage();
     }
 
+    @Step
     public void removeGroup(GroupData group) {
         openGroupPage();
         selectGroup(group);
@@ -102,6 +105,7 @@ public class GroupHelper extends HelperBase {
                 .forEach(WebElement::click);
     }
 
+    @Step
     public List<GroupData> getList() {
         openGroupPage();
         var spans = manager.driver.findElements(By.cssSelector("span.group"));
