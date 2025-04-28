@@ -27,17 +27,17 @@ public class ApplicationManager {
         this.properties = properties;
         if (driver == null) {
             var seleniumServer = properties.getProperty("seleniumServer");
-            if ("chrome".equals(browser)) {
-                if (seleniumServer != null){
-                    driver = new RemoteWebDriver(new URL(seleniumServer), new ChromeOptions());
-                } else {
-                    driver = new ChromeDriver();
-                }
-            } else if ("firefox".equals(browser)) {
+            if ("firefox".equals(browser)) {
                 if (seleniumServer != null){
                     driver = new RemoteWebDriver(new URL(seleniumServer), new FirefoxOptions());
                 } else {
-                    driver = new FirefoxDriver();}
+                    driver = new FirefoxDriver();
+                }
+            } else if ("chrome".equals(browser)) {
+                if (seleniumServer != null){
+                    driver = new RemoteWebDriver(new URL(seleniumServer), new ChromeOptions());
+                } else {
+                    driver = new ChromeDriver();}
             } else {
                 throw new IllegalArgumentException(String.format("Unknow browser %s", browser));
             }
